@@ -1,1 +1,2 @@
-# protein-tracker-using-redis
+This is an application to monitor a user's protein intake. In this application,a user can enter a goal for his protein intake and add his protein intake. The last 5 intakes of the user are recorded. Also a leaderboard is maintained of total protein intake among all the users.
+This application demonstrates the use of Redis as a NoSql database for storing the data of user, his history and maintaining a leaderboard. The Redis server accepts requests from C# Redis Client ServiceStack.Redis.
