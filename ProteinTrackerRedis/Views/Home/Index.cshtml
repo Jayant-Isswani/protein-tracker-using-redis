@@ -1,0 +1,18 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Select User";
+    Layout = "../Shared/_Layout.cshtml";
+}
+<h2>Select User</h2>
+        <label>User Name:</label><br />
+        <div class="form">
+            @using (Html.BeginForm("Index", "Tracker", FormMethod.Post))
+            {
+                @Html.DropDownList("userId", null, String.Empty)
+                <button class="btn-primary" type="submit">Get details</button>
+            }
+        </div>
+<div>
+    @Html.ActionLink("Create new user", "NewUser", "User")
+</div>

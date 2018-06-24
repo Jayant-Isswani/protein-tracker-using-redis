@@ -1,0 +1,51 @@
+﻿@model dynamic
+@{
+    ViewBag.Title = "Protein Tracker";
+    Layout = "../Shared/_Layout.cshtml";
+}
+<div class="container">
+    <h2>Protein Tracker</h2>
+    <table class="table">
+        <tr>
+            <td>User:</td>
+            <td>@Html.ActionLink((string)@ViewBag.UserName, "Edit", "User", new { userId = ViewBag.userId }, null)</td>
+        </tr>
+        <tr>
+            <td>Total:</td>
+            <td>@ViewBag.Total</td>
+        </tr>
+        <tr>
+            <td>Goal:</td>
+            <td>@ViewBag.Goal</td>
+        </tr>
+        <tr>
+            <td>History:</td>
+            <td>
+                @foreach (var historyItem in ViewBag.HistoryItems)
+                {
+                    <p>Added amount: @historyItem</p>
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>Amount:</td>
+            <td>
+                @using (Html.BeginForm("Index", "Tracker", FormMethod.Post))
+                {
+                    <input type="text" name="amount" placeholder="Enter last intake" />
+                    <input type="submit" name="Enter" />
+                    <input type="hidden" name="userId" value="@ViewBag.userId" />
+                }
+            </td>
+        </tr>
+    </table>
+    <table class="table"> 
+        <tr>
+            <td>@Html.ActionLink("View Leaderboard", "Index", "Leaderboard")</td>
+            <td>@Html.ActionLink("Delete User", "Delete", "User", new { userId = ViewBag.userId }, null)</td>
+        </tr>
+    </table>
+    
+    
+</div>
+
